@@ -146,6 +146,7 @@ public class ValidationItemControllerV2 {
     @PostMapping("/add")
     public String addItemV4(@ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
         //검증 로직
+//        ValidationUtils.rejectIfEmptyOrWhitespace(bindingResult, "itemName", "required");
         if (!StringUtils.hasText(item.getItemName()))
             bindingResult.rejectValue("itemName", "required");
         if (item.getPrice() == null || item.getPrice() < 1000 || item.getPrice() > 1000000)
